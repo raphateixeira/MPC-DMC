@@ -1,0 +1,12 @@
+---
+title: "Controle por Matriz Dinâmica - DMC"
+subtitle: "Controle Preditivo"
+institute: "Universidade Federal do Pará"
+author: "Prof. Dr. Raphael Teixeira"
+date: ""
+format: html
+---
+
+Controle DMC
+
+* [Controle DMC](DMC01/DMC01Intro.html)

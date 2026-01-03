@@ -1,0 +1,45 @@
+---
+title: "Controle por Matriz Dinâmica - DMC"
+subtitle: "Controle Preditivo"
+institute: "Universidade Federal do Pará"
+author: "Prof. Dr. Raphael Teixeira"
+date: ""
+editor:
+  render-on-save: false
+format: 
+  revealjs:
+    slide-number: true
+    transition: fade
+---
+
+## Cálculo das predições
+O modelo é baseado na resposta ao degrau:
+
+$$y(k) = \sum_{i=1}^{n} g_i \Delta u(k-i)$$
+
+---
+
+## Cálculo das predições
+Isto pode ser verificado partindo da resposta ao impulso: 
+$$y(k) = \sum_{i=1}^{\infty} g_i \Delta u(k-i)$$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definindo os parâmetros do sistema
+g = np.array([0.5, 0.3, 0.2])  # Coeficientes de resposta ao impulso
+n = len(g)  # Número de amostras
+
+# Definindo a entrada degrau
+u = np.ones(n)  # Entrada degrau unitário
+
+# Calculando a saída usando a resposta ao impulso
+y = np.zeros(n)
+for k in range(n):
+    for i in range(k+1):
+        y[k] += g[i] * u[k-i]
+
+plt.stem(y)
+plt.show()
+```
